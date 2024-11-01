@@ -1,18 +1,18 @@
-import { SQL, sql } from 'drizzle-orm';
-import { pgTable, serial, text, uniqueIndex, AnyPgColumn, pgEnum, boolean } from 'drizzle-orm/pg-core';
+import { InferSelectModel, SQL, sql } from 'drizzle-orm';
+import { pgTable, serial, text, uniqueIndex, AnyPgColumn, pgEnum, boolean, integer, timestamp } from 'drizzle-orm/pg-core';
 
 //user roles enum
 export const userRole = pgEnum('role', ['admin', 'user']);
 
-export const users = pgTable(
+export const userTable = pgTable(
   'users',
   {
     id: serial('id').primaryKey(),
     name: text('name').notNull(),
     email: text('email').notNull(),
-    emailVerified: text('email_verified'),
+    emailVerifiedAt: timestamp('email_verified_at'),
     image: text('image'),
-    role: userRole().$default(() => 'user'),
+    role: userRole().notNull().$default(() => 'user'),
     isTwoFactorEnabled: boolean('is_two_factor_enabled').$default(() => false),
     
   },
@@ -25,3 +25,17 @@ export const users = pgTable(
 export function lower(email: AnyPgColumn): SQL {
   return sql`lower(${email})`;
 }
+
+export const sessionTable = pgTable("session", {
+	id: text("id").primaryKey(),
+	userId: integer("user_id")
+		.notNull()
+		.references(() => userTable.id),
+	expiresAt: timestamp("expires_at", {
+		withTimezone: true,
+		mode: "date"
+	}).notNull()
+});
+
+export type User = InferSelectModel<typeof userTable>;
+export type Session = InferSelectModel<typeof sessionTable>;
