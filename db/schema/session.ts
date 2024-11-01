@@ -4,7 +4,7 @@ import { InferSelectModel } from "drizzle-orm";
 
 
 export const sessions = pgTable(
-  "gf_session",
+  "sessions",
   {
     id: text("id").primaryKey(),
     userId: serial("userId")

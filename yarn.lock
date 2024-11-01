@@ -1023,6 +1023,11 @@
   dependencies:
     "@t3-oss/env-core" "0.11.1"
 
+"@types/bcryptjs@^2.4.6":
+  version "2.4.6"
+  resolved "https://registry.yarnpkg.com/@types/bcryptjs/-/bcryptjs-2.4.6.tgz#2b92e3c2121c66eba3901e64faf8bb922ec291fa"
+  integrity sha512-9xlo6R2qDs5uixm0bcIqCeMCE6HiQsIyel9KQySStiyqNl2tnj2mP3DX1Nf56MD6KMenNNlBBsy3LJ7gUEQPXQ==
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
@@ -1170,20 +1175,38 @@ acorn@^8.9.0:
 "agricultural_energy_calculation_and_analysis_system@file:.":
   version "0.1.0"
   dependencies:
+    "@hookform/resolvers" "^3.9.1"
     "@oslojs/crypto" "^1.0.1"
     "@oslojs/encoding" "^1.1.0"
+    "@radix-ui/react-accordion" "^1.2.1"
+    "@radix-ui/react-checkbox" "^1.1.2"
+    "@radix-ui/react-dialog" "^1.1.2"
     "@radix-ui/react-icons" "^1.3.1"
+    "@radix-ui/react-label" "^2.1.0"
+    "@radix-ui/react-popover" "^1.1.2"
+    "@radix-ui/react-radio-group" "^1.2.1"
+    "@radix-ui/react-select" "^2.1.2"
+    "@radix-ui/react-separator" "^1.1.0"
+    "@radix-ui/react-slot" "^1.1.0"
+    "@radix-ui/react-switch" "^1.1.1"
+    "@radix-ui/react-toggle" "^1.1.0"
+    "@radix-ui/react-tooltip" "^1.1.3"
     "@t3-oss/env-nextjs" "^0.11.1"
-    agricultural_energy_calculation_and_analysis_system "file:C:/Users/Sayan/AppData/Local/Yarn/Cache/v6/npm-agricultural-energy-calculation-and-analysis-system-0.1.0-0b525e06-9c47-4edf-bca9-02f79098aeed-1730470161584/node_modules/agricultural_energy_calculation_and_analysis_system"
+    agricultural_energy_calculation_and_analysis_system "file:C:/Users/Sayan/AppData/Local/Yarn/Cache/v6/npm-agricultural-energy-calculation-and-analysis-system-0.1.0-ce9561b7-2fa9-421a-8d82-6bf9d633c5ba-1730485029994/node_modules/agricultural_energy_calculation_and_analysis_system"
+    bcryptjs "^2.4.3"
     class-variance-authority "^0.7.0"
     clsx "^2.1.1"
+    date-fns "^4.1.0"
     dotenv "^16.4.5"
     drizzle-orm "^0.36.0"
+    drizzle-zod "^0.5.1"
     lucide-react "^0.454.0"
     next "15.0.2"
     pg "^8.13.1"
     react "19.0.0-rc-02c0e824-20241028"
+    react-day-picker "8.10.1"
     react-dom "19.0.0-rc-02c0e824-20241028"
+    react-hook-form "^7.53.1"
     tailwind-merge "^2.5.4"
     tailwindcss-animate "^1.0.7"
     zod "^3.23.8"
@@ -1370,6 +1393,11 @@ balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
+
+bcryptjs@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/bcryptjs/-/bcryptjs-2.4.3.tgz#9ab5627b93e60621ff7cdac5da9733027df1d0cb"
+  integrity sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ==
 
 binary-extensions@^2.0.0:
   version "2.3.0"
@@ -1665,6 +1693,11 @@ drizzle-orm@^0.36.0:
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/drizzle-orm/-/drizzle-orm-0.36.0.tgz#5bbaaf97a50b2967c16658cdb5aa22a293ddbb5d"
   integrity sha512-6BETYPdKSR7cDHC0ZfqZk2VrKJ8n/Rfd3ajFPsAbc69gi87nwZ6oBA2wUGMELHA0tQE4kUKN0Ds00LUZQ6Z69A==
+
+drizzle-zod@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/drizzle-zod/-/drizzle-zod-0.5.1.tgz#4e5efe016dce22ed01063f72f839b07670b2d11e"
+  integrity sha512-C/8bvzUH/zSnVfwdSibOgFjLhtDtbKYmkbPbUCq46QZyZCH6kODIMSOgZ8R7rVjoI+tCj3k06MRJMDqsIeoS4A==
 
 eastasianwidth@^0.2.0:
   version "0.2.0"
@@ -2805,6 +2838,11 @@ natural-compare@^1.4.0:
   resolved "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
+next-themes@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/next-themes/-/next-themes-0.3.0.tgz#b4d2a866137a67d42564b07f3a3e720e2ff3871a"
+  integrity sha512-/QHIrsYpd6Kfk7xakK4svpDI5mmXP0gfvCoJdGpZQ2TOrQZmsW0QxjaiLn8wbIKjtm4BTSqLoix4lxYYOnLJ/w==
+
 next@15.0.2:
   version "15.0.2"
   resolved "https://registry.npmjs.org/next/-/next-15.0.2.tgz"
@@ -3469,6 +3507,11 @@ simple-swizzle@^0.2.2:
   integrity sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==
   dependencies:
     is-arrayish "^0.3.1"
+
+sonner@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/sonner/-/sonner-1.5.0.tgz#af359f817063318415326b33aab54c5d17c747b7"
+  integrity sha512-FBjhG/gnnbN6FY0jaNnqZOMmB73R+5IiyYAw8yBj7L54ER7HB3fOSE5OFiQiE2iXWxeXKvg6fIP4LtVppHEdJA==
 
 source-map-js@^1.0.2, source-map-js@^1.2.1:
   version "1.2.1"
