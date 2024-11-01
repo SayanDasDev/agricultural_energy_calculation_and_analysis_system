@@ -23,6 +23,10 @@ import {
   FormLabel,
   FormMessage,
 } from "./ui/form";
+import { useTransition } from "react";
+import { login } from "@/app/(auth)/login/actions";
+import { toast } from "sonner";
+import { redirect } from "next/navigation";
 
 export function LoginForm() {
   const form = useForm<z.infer<typeof loginSchema>>({
@@ -33,8 +37,21 @@ export function LoginForm() {
     },
   });
 
+  const [isPending, startTransition] = useTransition();
+
   function onSubmit(values: z.infer<typeof loginSchema>) {
-    console.log(values);
+    startTransition(() => {
+      login(values)
+        .then((data)=>{
+          if(data.error){
+            toast.error(data.error)
+          }
+          if(data.success){
+            toast.success(data.success)
+            redirect("/dashboard")
+          }
+        })
+    })
   }
 
   return (
@@ -58,6 +75,7 @@ export function LoginForm() {
                     <FormControl>
                       <Input
                         type="email"
+                        disabled={isPending}
                         placeholder="m@example.com"
                         {...field}
                       />
@@ -85,6 +103,7 @@ export function LoginForm() {
                     </div>
                     <FormControl>
                       <PasswordInput
+                        disabled={isPending}
                         placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
                         {...field}
                       />
@@ -94,10 +113,10 @@ export function LoginForm() {
                 );
               }}
             />
-            <Button type="submit" className="w-full">
+            <Button disabled={isPending} type="submit" className="w-full">
               Login
             </Button>
-            <Button variant="outline" className="w-full">
+            <Button disabled={isPending} variant="outline" className="w-full">
               Login with Google
             </Button>
           </form>

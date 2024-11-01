@@ -138,7 +138,7 @@ export function SignupForm() {
                   );
                 }}
               />
-            <Button type="submit" className="w-full">
+            <Button disabled={isPending} type="submit" className="w-full">
               Sign up
             </Button>
             <Button disabled={isPending} variant="outline" className="w-full">
