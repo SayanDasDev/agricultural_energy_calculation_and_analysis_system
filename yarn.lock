@@ -573,6 +573,18 @@
   dependencies:
     tslib "^2.4.0"
 
+"@t3-oss/env-core@0.11.1":
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/@t3-oss/env-core/-/env-core-0.11.1.tgz#adc4022c62040ed6de5299e81cf65bb2aab90673"
+  integrity sha512-MaxOwEoG1ntCFoKJsS7nqwgcxLW1SJw238AJwfJeaz3P/8GtkxXZsPPolsz1AdYvUTbe3XvqZ/VCdfjt+3zmKw==
+
+"@t3-oss/env-nextjs@^0.11.1":
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/@t3-oss/env-nextjs/-/env-nextjs-0.11.1.tgz#643d75397751e08569d8979310114c16b6c8e210"
+  integrity sha512-rx2XL9+v6wtOqLNJbD5eD8OezKlQD1BtC0WvvtHwBgK66jnF5+wGqtgkKK4Ygie1LVmoDClths2T4tdFmRvGrQ==
+  dependencies:
+    "@t3-oss/env-core" "0.11.1"
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
@@ -720,12 +732,15 @@ acorn@^8.9.0:
 "agricultural_energy_calculation_and_analysis_system@file:.":
   version "0.1.0"
   dependencies:
-    agricultural_energy_calculation_and_analysis_system "file:C:/Users/Sayan/AppData/Local/Yarn/Cache/v6/npm-agricultural-energy-calculation-and-analysis-system-0.1.0-48488ea7-c680-4a7d-9b1a-94027b713fd8-1730458840975/node_modules/agricultural_energy_calculation_and_analysis_system"
+    "@t3-oss/env-nextjs" "^0.11.1"
+    agricultural_energy_calculation_and_analysis_system "file:C:/Users/Sayan/AppData/Local/Yarn/Cache/v6/npm-agricultural-energy-calculation-and-analysis-system-0.1.0-eec68cbd-a2a2-45db-bda3-f3ef020ceb71-1730464393883/node_modules/agricultural_energy_calculation_and_analysis_system"
+    dotenv "^16.4.5"
     drizzle-orm "^0.36.0"
     next "15.0.2"
     pg "^8.13.1"
     react "19.0.0-rc-02c0e824-20241028"
     react-dom "19.0.0-rc-02c0e824-20241028"
+    zod "^3.23.8"
 
 ajv@^6.12.4:
   version "6.12.6"
@@ -3372,3 +3387,8 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+zod@^3.23.8:
+  version "3.23.8"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.23.8.tgz#e37b957b5d52079769fb8097099b592f0ef4067d"
+  integrity sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==
