@@ -19,6 +19,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useTransition } from "react";
 import { signup } from "@/app/(auth)/signup/actions";
 import { toast } from "sonner"
+import { redirect } from "next/navigation";
 
 
 export function SignupForm() {
@@ -43,6 +44,7 @@ export function SignupForm() {
           }
           if(data.success){
             toast.success(data.success)
+            redirect("/dashboard")
           }
         })
     });

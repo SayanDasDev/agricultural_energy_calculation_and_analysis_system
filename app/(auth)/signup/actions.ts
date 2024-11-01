@@ -3,9 +3,10 @@
 import { getUserByEmail } from "@/data/user";
 import db from "@/db/drizzle";
 import { users } from "@/db/schema";
+import { setSession } from "@/lib/session";
 import { hashPassword } from "@/lib/utils";
-import { signupSchema } from "@/use-cases/schema"
-import { z } from "zod"
+import { signupSchema } from "@/use-cases/schema";
+import { z } from "zod";
 
 
 export const signup = async (values: z.infer<typeof signupSchema>) => {
@@ -26,11 +27,13 @@ export const signup = async (values: z.infer<typeof signupSchema>) => {
     return { error: "Email Already in Use!" }
   }
 
-  await db.insert(users).values({
+  const userId = await db.insert(users).values({
     username,
     email,
     password: hashedPassword,
-  });
+  }).returning({ insertedId : users.id });
+
+  await setSession(userId[0].insertedId);
 
   return { success: "Account Created!" }
 

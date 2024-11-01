@@ -1,11 +1,11 @@
-import { SignupForm } from "@/components/signup-form";
+import Navbar from "@/components/navbar";
 import { getCurrentSession } from "@/lib/session";
 import { redirect } from "next/navigation";
 
 export default async function Page() {
-
-  const { session } = await getCurrentSession();
-	if (session !== null) {
+  
+  const { session, user } = await getCurrentSession();
+	if (session === null) {
 		// if (!user.emailVerified) {
 		// 	return redirect("/verify-email");
 		// }
@@ -15,11 +15,13 @@ export default async function Page() {
 		// if (!session.twoFactorVerified) {
 		// 	return redirect("/2fa");
 		// }
-		return redirect("/dashboard");
+		return redirect("/login");
 	}
+
   return (
-    <div className="flex h-screen w-full items-center justify-center px-4">
-      <SignupForm />
+    <div className="flex flex-col gap-4 h-screen w-full text-8xl items-center justify-center px-4">
+      Dashboard of {user.username} with email - {user.email}
+      <Navbar />
     </div>
-  )
+  );
 }

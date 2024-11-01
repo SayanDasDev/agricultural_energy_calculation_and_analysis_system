@@ -1,5 +1,5 @@
 import "server-only";
-import { createSession, generateSessionToken, validateRequest } from "@/auth";
+import { createSession, generateSessionToken, SessionValidationResult, validateRequest, validateSessionToken } from "@/auth";
 import { cache } from "react";
 import { cookies } from "next/headers";
 import { UserId } from "@/use-cases/types";
@@ -34,6 +34,15 @@ export async function getSessionToken(): Promise<string | undefined> {
   return cookieJar.get(SESSION_COOKIE_NAME)?.value;
 }
 
+export const getCurrentSession = cache(async (): Promise<SessionValidationResult> => {
+  const token = await getSessionToken();
+  if (token == null) {
+    return { session: null, user: null };
+  }
+  const result = await validateSessionToken(token as string);
+  return result;
+});
+
 export const getCurrentUser = cache(async () => {
   const { user } = await validateRequest();
   return user ?? undefined;
@@ -50,5 +59,5 @@ export const assertAuthenticated = async () => {
 export async function setSession(userId: UserId) {
   const token = generateSessionToken();
   const session = await createSession(token, userId);
-  setSessionTokenCookie(token, session.expiresAt);
+  await setSessionTokenCookie(token, session.expiresAt);
 }
